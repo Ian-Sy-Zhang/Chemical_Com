@@ -1,0 +1,12 @@
+<view class='logo'>
+  <image src='../../images/化学工业.png' mode='bottom'></image>
+</view>
+<view class='page_row' bindtap="suo">
+  <view class="search">
+    <view class="df search_arr">
+      <icon class="searchcion" size='20' type='search'></icon>
+      <input class="" disabled placeholder="根据化学品的名称搜索" value="{{searchValue}}" />
+    </view>
+  </view>
+  <view class='sousuo'>搜索</view>
+</view>

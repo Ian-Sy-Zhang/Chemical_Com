@@ -1,0 +1,29 @@
+{
+  "pages":[
+    "pages/search/search",
+    "pages/searchCAS/searchCAS",
+    "pages/scan/scan",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/search/search",
+      "text": "名称搜索",
+      "iconPath": "images/化学试剂.png",
+      "selectedIconPath": "images/化学试剂1.png"
+    },{
+      "pagePath": "pages/searchCAS/searchCAS",
+      "text": "CAS搜索",
+      "iconPath": "images/化学试管.png",
+      "selectedIconPath": "images/化学试管1.png"
+    }
+    ]
+  }
+}
