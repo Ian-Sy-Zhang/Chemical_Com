@@ -1,18 +1,45 @@
-// pages/search/search.js
+// pages/ResultTable/ResultTable.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:''
+    chem_name: "",
+    list: [],
+    chem: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // this.data.chem_name = options.chem_name
+    this.setData({
+      chem_name: options.chem_name
+    })
+    var Url = "http://127.0.0.1:8080/getByName/" + options.chem_name
+    var that = this
+    wx.request({
+      url: Url,
+      method: 'GET',
+      data: {},
+      success: function (res) {
+        var list = res.data
+        that.setData({
+          chem: res.data[0]
+        })
+        console.log(that.data.chem.name)
+        if (list = null) {
+          var toastText = '没有找到相关药品!';
+          wx.showToast({
+            title: 'toastText',
+            icon: '',
+            duration: 2000
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -62,19 +89,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  chemNameInput:function(e){
-    this.data.name=e.detail.value
-    console.log(this.data.name)
-  },
-
-  searchByName:function(e){
-    wx.navigateTo({
-      url: "../ResultTable/ResultTable?chem_name="+this.data.name,
-    })
   }
-
-
-
 })

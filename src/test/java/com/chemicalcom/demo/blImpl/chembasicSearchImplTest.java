@@ -5,6 +5,7 @@ import com.chemicalcom.demo.data.chembasicMapper;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.*;
@@ -28,13 +29,13 @@ public class chembasicSearchImplTest {
 
     @Test
     public void nameSearch() {
-        Map R = C.nameSearch("1,2,3");
+        List R = C.nameSearch("1,2,3");
         System.out.println(R);
     }
 
     @Test
     public void CASSearch() {
-        Map R = C.CASSearch("87-61-6");
+        List R = C.CASSearch("87-61-6");
         System.out.println(R);
     }
 

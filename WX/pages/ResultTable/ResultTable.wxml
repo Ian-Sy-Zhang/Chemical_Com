@@ -1,0 +1,16 @@
+<view class='container'>
+  <view class='widget'>
+    <text class='column'>化学品名称-CAS编号</text>
+  </view>
+  <scroll-view scroll-y="true">
+    <block wx:for='{{list}}' wx:key='index'>
+      <navigator class='widget' url='../basicDetail/basicDetail?chem_name={{item.name}}'>
+        <text class='column'>{{item.name}}</text>
+        <text class='column'>{{item.cas}}</text>
+      </navigator>
+    </block>
+  </scroll-view>
+</view>
+
+
+

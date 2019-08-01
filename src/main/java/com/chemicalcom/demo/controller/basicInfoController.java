@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -16,12 +17,12 @@ public class basicInfoController {
     private chembasicSearchService chembasicSearch;
 
     @GetMapping(value = "/getByName/{chemName}")
-    public Map<String,chembasicVO> searchChemName(@PathVariable String chemName){
+    public List<chembasicVO> searchChemName(@PathVariable String chemName){
         return chembasicSearch.nameSearch(chemName);
     }
 
     @GetMapping(value = "/getById/{chemId}")
-    public Map<String,chembasicVO> searchChemId(@PathVariable String chemId){
+    public List<chembasicVO> searchChemId(@PathVariable String chemId){
         return chembasicSearch.nameSearch(chemId);
     }
 

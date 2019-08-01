@@ -1,0 +1,5 @@
+<view>名称：{{chem.name}}</view>
+<view>别名：{{chem.otherName}}</view>
+<view>CAS编号：{{chem.cas}}</view>
+<view>分子式：{{chem.molfor}}</view>
+<view>分子量：{{chem.molwei}}</view>

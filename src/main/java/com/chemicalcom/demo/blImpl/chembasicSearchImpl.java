@@ -7,6 +7,7 @@ import com.chemicalcom.demo.data.chembasicMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,35 +19,30 @@ public class chembasicSearchImpl implements chembasicSearchService {
     private chembasicMapper basicMapper;
 
     @Override
-    public Map<String, chembasicVO> nameSearch(String chemName) {
+    public List<chembasicVO> nameSearch(String chemName) {
         List<chembasic> result = basicMapper.searchChemByName(chemName);
         return handleResult(result);
     }
 
     @Override
-    public Map<String, chembasicVO> CASSearch(String CAS) {
+    public List<chembasicVO> CASSearch(String CAS) {
         List<chembasic> result = basicMapper.searchChemByCAS(CAS);
         return handleResult(result);
     }
 
-    Map<String, chembasicVO> handleResult(List<chembasic> result){
-        Map<String, chembasicVO> R = new HashMap<>();
+    List<chembasicVO> handleResult(List<chembasic> result){
+        List<chembasicVO> R = new ArrayList<>();
         for(chembasic i : result){
-            if (R.containsKey(i.getCHEM())){
-                continue;
-            }
-            else {
-                chembasicVO temp = new chembasicVO();
-                temp.setName(i.getNAME());
-                temp.setCAS(i.getCAS());
-                temp.setOtherName(i.getOTHERNAME());
-                temp.setMOLFOR(i.getMOLFOR());
-                temp.setMOLWEI(i.getMOLWEI());
-                //DangerRank需要根据dangerSearch来搜索
-                //temp.setDangerRank(i.get);
-                //picture同上
-                R.put(i.getCHEM(),temp);
-            }
+            chembasicVO temp = new chembasicVO();
+            temp.setName(i.getNAME());
+            temp.setCAS(i.getCAS());
+            temp.setOtherName(i.getOTHERNAME());
+            temp.setMOLFOR(i.getMOLFOR());
+            temp.setMOLWEI(i.getMOLWEI());
+            //DangerRank需要根据dangerSearch来搜索
+            //temp.setDangerRank(i.get);
+            //picture同上
+            R.add(temp);
         }
         return R;
     }
